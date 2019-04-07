@@ -17,6 +17,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// GoogleMaps initialising the map with lat,long coordinates
 function initMap(lat, lng) {
     var myCoords = new google.maps.LatLng(lat, lng);
     var mapOptions = {
@@ -31,6 +33,7 @@ function initMap(lat, lng) {
 });
 }
 
+// Second map used for editing and updating course locations allowing the user to drag the marker on the map while this will update the latitude and longitude values.
 function initMap2() {
     var lat = document.getElementById('course_latitude').value;
     var lng = document.getElementById('course_longitude').value;

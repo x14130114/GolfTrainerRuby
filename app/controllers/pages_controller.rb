@@ -2,10 +2,7 @@ require "weathergolf"
 
 class PagesController < ApplicationController
 
-  def new
-    @current_weather = WeatherApi.find_city()
-  end
-
+  # method using the weathergolf gem i created to access the data from openweather api for the main course locations in my application
   def home
   	@id = params[:id]
   	@current_weather=WeatherApi.find_city("dublin")
@@ -19,18 +16,12 @@ class PagesController < ApplicationController
   	@current_weather4=WeatherApi.find_city("meath")
   	@current_name4=WeatherApi.find_name("meath")
   end
-  def create
-  	redirect_to action: :home
-  end
-
-  def weather
-	@current_weather=WeatherApi.find_city("dublin")
-  end 
 
   def icon
   	@current_weather=WeatherIcon.find_icon("04d")
   end
 
+  # search method that allows the user to search across Course names and trainer names, if blank returns a notice message
   def search
   	if params[:search].blank?  
     	redirect_to(root_path, notice: "Empty Search field! Please try again") and return  

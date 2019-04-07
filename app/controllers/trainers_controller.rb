@@ -1,5 +1,7 @@
 class TrainersController < ApplicationController
+  # check if user is logged in and show page, only show the index and show methods if not logged in
   before_action :authenticate_user!, except: [:index, :show]
+  #  check if the user is an admin and show the edit update and destroy methods if they are an admin
   before_action :ensure_admin, except: [:index, :show]
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
 

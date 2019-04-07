@@ -1,7 +1,9 @@
 require "weathergolf"
 
 class CoursesController < ApplicationController
+  #  check if the user is logged in before accessing methods except for index and show methods
   before_action :authenticate_user!, except: [:index, :show]
+  # ensure the user is an admin before they can see the edit update and destroy buttons(methods)
   before_action :ensure_admin, except: [:index, :show]
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
@@ -76,6 +78,7 @@ class CoursesController < ApplicationController
       params.require(:course).permit(:course_name, :location, :holes, :par, :latitude, :longitude)
     end
 
+    # ensure_admin method that checks if the user is an admin, if not redirect and print error
     def ensure_admin
       unless current_user.admin?
         redirect_to(courses_path, notice: 'Not authorized to create a Course')

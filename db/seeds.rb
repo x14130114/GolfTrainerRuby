@@ -1,18 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-
+# creating the users in the database
 User.create!([
   {email: "useradmin@useradmin.com", password: "martial", password_confirmation: "martial", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, created_at: nil, updated_at: nil, admin: true, trainer: false},
   {email: "user@user.com", password: "martial", password_confirmation: "martial", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, created_at: nil, updated_at: nil, admin: false, trainer: false}
 ])
 
 
+# creating the trainers in the database
 Trainer.create!([
   {photo: "", first_name: "Noel", last_name: "McNamee", phone: "0875676554", bio: "", experience: "7 Years", created_at: nil, updated_at: nil },
   {photo: "", first_name: "Harry", last_name: "Maguire", phone: "0874251109", bio: "", experience: "10 Years", created_at: nil, updated_at: nil },
@@ -26,7 +19,7 @@ Trainer.create!([
   {photo: "", first_name: "Zoey", last_name: "Brooke", phone: "0855441554", bio: "", experience: "5 Years", created_at: nil, updated_at: nil }
 ])
 
-
+# creating the courses in the database
 Course.create!([
   {course_name: "Glen Mill Golf Club", location: "Tinmore, Newcastle, Co Wicklow", holes: "18", par: "3", created_at: nil, updated_at: nil, latitude: "53.069318", longitude: "-6.091144" },
   {course_name: "Stepaside Golf Course", location: "Stepaside Golf Centre Jamestown Farm Kilternan", holes: "18", par: "3", created_at: nil, updated_at: nil, latitude: "53.244432", longitude: "-6.206607" },

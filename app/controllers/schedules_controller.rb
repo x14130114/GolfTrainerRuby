@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  # check if user is logged in before loading the page
   before_action :authenticate_user!
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
 
