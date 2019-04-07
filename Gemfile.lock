@@ -1,3 +1,9 @@
+PATH
+  remote: vendor/RubyWeatherGem
+  specs:
+    weathergolf (0.0.3)
+      httparty (= 0.13.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -217,8 +223,6 @@ GEM
       execjs (>= 0.3.0, < 3)
     warden (1.2.8)
       rack (>= 2.0.6)
-    weathergolf (0.0.3)
-      httparty (= 0.13.1)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -262,7 +266,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
-  weathergolf (= 0.0.3)
+  weathergolf (= 0.0.3)!
   web-console (>= 3.3.0)
 
 RUBY VERSION
