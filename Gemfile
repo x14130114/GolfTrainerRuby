@@ -70,7 +70,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Heroku uses Heroku Postgres DB based on PostgreSQL
 group :production do
-  gem 'pg', '0.17.1'
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
 
@@ -79,3 +79,4 @@ group :development, :test do
   gem 'sqlite3', '~> 1.3.6'
 end
 
+gem 'bundler', '2.0.1'
