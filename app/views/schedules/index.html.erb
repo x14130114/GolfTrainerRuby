@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="~bulma-calendar/dist/css/bulma-calendar.min.css" rel="stylesheet">
+  <script src="~bulma-calendar/dist/js/bulma-calendar.min.js"></script>
+</head>
+<body>
+
+<div class="container text-center" id="schedules">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Schedules</h1>
+
+  <table class="table is-bordered is-hoverable is-fullwidth">
+    <thead>
+      <tr class="is-selected">
+        <th>Title</th>
+        <th>Start time</th>
+        <th>Trainer</th>
+        <th>Course</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @schedules.each do |schedule| %>
+        <tr>
+          <td><%= schedule.title %></td>
+          <td><%= schedule.start_time %></td>
+          <td><%= schedule.trainer_id %></td>
+          <td><%= schedule.course_id %></td>
+          <td><%= link_to 'Show', schedule %></td>
+          <% if current_user && current_user.admin? %>
+            <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
+            <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <a class="button is-primary" href="schedules/new" role="button">
+    Book Appointment
+  </a>
+
+  <br>
+  <br>
+
+<div class="column is-fullwidth">
+  <div class="calendar">
+  <%= month_calendar events: @schedules do |date, schedules| %>
+    <%= date %>
+
+    <% schedules.each do |schedule| %>
+      <div>
+        <%= link_to schedule.title, schedule %>
+        <br>  
+        <%= schedule.start_time %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+</div>
+</div>
+</body>
+</html>

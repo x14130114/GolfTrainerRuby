@@ -1,0 +1,49 @@
+<html>
+<head>
+<% provide :head_tags do %>
+    <meta name='turbolinks-visit-control' content='reload'>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(<%=@course.latitude%>, <%=@course.longitude%>)
+    });
+    </script>
+<% end %>
+</head>
+<body>
+<p id="notice"><%= notice %></p>
+
+<table class="table is-bordered is-hoverable is-fullwidth">
+  <thead>
+    <tr class="is-selected">
+      <th>Course name</th>
+      <th>Location</th>
+      <th>Holes</th>
+      <th>Par</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @course.course_name %></td>
+        <td><%= @course.location %></td>
+        <td><%= @course.holes %></td>
+        <td><%= @course.par %></td>
+        <td><%= @course.latitude %></td>
+        <td><%= @course.longitude %></td>
+      </tr>
+  </tbody>
+</table>
+
+
+<p>
+    <div id="map"></div>
+</p>
+
+<% if current_user && current_user.admin? %>
+<%= link_to 'Edit', edit_course_path(@course) %> <br>
+<% end %>
+<%= link_to 'Back', courses_path %>
+</body>
+</html>

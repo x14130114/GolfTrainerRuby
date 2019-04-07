@@ -1,0 +1,10 @@
+
+<article class="message">
+  <div class="message-header">
+    <p>User_id:<%= comment.user_id %></p>
+  </div>
+  <div class="message-body">
+    <p><%= comment.body %></p>
+    <p><%= time_ago_in_words(comment.created_at) %></p>
+  </div>
+</article>

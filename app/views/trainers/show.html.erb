@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <%=image_tag("user.png")%>
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= @trainer.first_name %></strong><strong><%= @trainer.last_name %></strong><small>     </small><small><%= @trainer.experience %> Experience</small>
+          <br>
+          <%= @trainer.bio %>
+          <br>
+          <%= @trainer.phone %>
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+
+<h2> <%= @trainer.comments.count %> Comments</h2>
+    <%= render @trainer.comments %>
+    <% if current_user %>
+    <div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
+    <h3>Add a Comment: </h3>
+  </div>
+</div>
+    <%= render 'comments/form' %>
+<br>
+<%= link_to 'Edit', edit_trainer_path(@trainer) %> <br>
+<% end %>
+<%= link_to 'Back', trainers_path %>

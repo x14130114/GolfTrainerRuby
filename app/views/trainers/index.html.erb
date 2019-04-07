@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Trainers</h1>
+
+<% @trainers.each do |trainer| %>
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <%=image_tag("user.png")%>
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= trainer.first_name %></strong><strong><%= trainer.last_name %></strong><small>     </small><small><%= trainer.experience %> Experience</small>
+          <br>
+          <%= trainer.bio %>
+          <br>
+          <p><b>Contact No:</b> <%= trainer.phone %></p>
+          <div class="container">
+    <div class="column is-2">
+          <%= link_to 'Show', trainer, class: "button is-rounded is-success is-small" %>
+        <% if current_user && current_user.admin? %>
+          <%= link_to 'Edit', edit_trainer_path(trainer),  class: "button is-rounded is-primary is-small" %>
+          <%= link_to 'Destroy', trainer, method: :delete, data: { confirm: 'Are you sure?' },  class: "button is-rounded is-danger is-small" %>
+        <% end %>
+    </div>
+  </div>  
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+<% end %>
+
+<br>
+
+<a class="button is-primary" href="trainers/new" role="button">
+  New Trainer
+</a>

@@ -1,0 +1,46 @@
+<%= form_with(model: trainer, local: true) do |form| %>
+  <% if trainer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trainer.errors.count, "error") %> prohibited this trainer from being saved:</h2>
+
+      <ul>
+      <% trainer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
+  <div class="field">
+    <%= form.label :first_name, class: "label is-medium" %>
+    <%= form.text_field :first_name, class: "input is-medium" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name, class: "label is-medium" %>
+    <%= form.text_field :last_name, class: "input is-medium"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone, class: "label is-medium" %>
+    <%= form.text_field :phone, class: "input is-medium"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bio, class: "label is-medium" %>
+    <%= form.text_area :bio, class: "input is-medium"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :experience, class: "label is-medium" %>
+    <%= form.text_field :experience, class: "input is-medium"  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "button is-block is-success is-medium is-fullwidth" %>
+  </div>
+</div>
+</div>
+<% end %>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GolfTrainer</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAlzBiGCJBXxZ32wyK4mxuTYDRLwcwbO04' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true%>
+    <%= yield(:head_tags) %>
+  </head>
+
+  <body>
+    <p id="alert"><%= alert %></p>
+    <!--<p id="notice"><%= notice %></p>-->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                    <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/courses">
+                <strong>Course</strong>
+            </a>
+
+            <a class="navbar-item" href="/trainers">
+                <strong>Trainers</strong>
+            </a>
+
+            <a class="navbar-item" href="/schedules">
+                <strong>Schedules</strong>
+            </a>
+            <%= form_tag(search_page_path, :method => "get", class: 'navbar-item') do %>  
+              <div class="input-group">  
+                <%= search_field_tag :search, params[:search], placeholder: "Search Courses", class: "form-control" %>  
+                <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+                <div class="input-group-btn">  
+                  
+                </div>  
+              </div>  
+            <% end %>
+        </div>
+        <div class="navbar-end">
+        <div class="navbar-item">
+        <div class="buttons">
+            <% if current_user %>
+                <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+            <% else %>
+                <%= link_to 'Sign Up', new_user_registration_path, class: "button is-block is-primary is-small" %>
+                <%= link_to 'Login', new_user_session_path, class: "button is-block is-small" %>
+            <% end %>
+        </div>
+      </div>
+    </div>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <%= yield %>
+  </body>
+</html>

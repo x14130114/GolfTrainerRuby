@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table is-bordered is-hoverable is-fullwidth">
+	<thead>
+      <tr class="is-selected">
+        <th>Title</th>
+        <th>Start time</th>
+        <th>Trainer</th>
+        <th>Course</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    	<tr>
+          <td><%= @schedule.title %></td>
+          <td><%= @schedule.start_time %></td>
+          <td><%= @schedule.trainer_id %></td>
+          <td><%= @schedule.course_id %></td>
+        </tr>
+    </tbody>
+</table>
+<% if current_user && current_user.admin? %>
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> <br>
+<% end %>
+<%= link_to 'Back', schedules_path %>
+
+

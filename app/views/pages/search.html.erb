@@ -1,0 +1,14 @@
+
+<h3>Search Result</h3>  
+<div class="box">
+      <div class="content">
+      	<p>
+      	<% @results.each do |result| %>  
+    		<%= link_to result.course_name, course_path(result.id), class: "button is-rounded is-info is-small"%><br><br>
+	    <% end %>
+	    	<% @answers.each do |answer| %>  
+	    	<%= link_to answer.first_name, trainer_path(answer.id), class: "button is-rounded is-primary is-small" %><br><br>
+	    <% end %>
+        </p>
+      </div>
+</div>

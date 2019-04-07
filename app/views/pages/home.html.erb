@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>GolfTrainer</title>
+      <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+      <!-- Bulma Version 0.7.4-->
+      <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+      <!--<link rel="stylesheet" type="text/css" href="../css/hero.css">-->
+      <link rel="stylesheet" href="https://unpkg.com/bulma-modal-fx/dist/css/modal-fx.min.css" />
+   </head>
+   <body>
+      <section class="hero is-info is-medium is-bold">
+         <div class="hero-head">
+         </div>
+         <div class="hero-body">
+            <div class="container has-text-centered">
+               <h1 class="title">
+                  <b>GolfTrainer</b> is here to help you
+               </h1>
+               <h2 class="subtitle">
+                  A system to help people looking for personal lessons to improve their golf game.  We deal with players of all skill levels.  80% of our trainers are Semi professional players who attend tournaments reguraly so be sure to find the perfect trainer for you. Even if it is just to improve your game to beat your buddies.
+               </h2>
+            </div>
+         </div>
+      </section>
+      <div class="box cta">
+         <p class="has-text-centered">
+            <span class="tag is-primary">Updated</span> Courses and Trainers reviewed regularly.
+         </p>
+      </div>
+      <section class="container">
+         <div class="columns features">
+            <div class="column is-4">
+               <div class="card is-shady">
+                  <div class="card-image has-text-centered">
+                     <i class="fa fa-empire"></i>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <h4>Trainers</h4>
+                        <p>Snippet about trainers</p>
+                        <p><a class="navbar-item" href="/trainers">View Trainers</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="column is-4">
+               <div class="card is-shady">
+                  <div class="card-image has-text-centered">
+                     <i class="fa fa-empire"></i>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <h4>Courses</h4>
+                        <p>Snippet about Courses
+                        </p>
+                        <p><a class="navbar-item" href="/courses">View Courses</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="column is-4">
+               <div class="card is-shady">
+                  <div class="card-image has-text-centered">
+                     <i class="fa fa-empire"></i>
+                  </div>
+                  <div class="card-content">
+                     <div class="content">
+                        <h4> Schedule A Lesson </h4>
+                        <p>Snippet about Schedules</p>
+                        <p><a class="navbar-item" href="/schedules">View Schedules</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+	<section class="container">
+         <div class="columns features">
+         <div class="column is-3 container has-text-centered">
+               <div class="card is-shady">
+                  <div class="card-content">
+                     <div class="content">
+                        <p class="bd-notification is-primary"><b><%= @current_name["name"] %></b></p>
+                     	<p class="bd-notification is-primary"><%= @current_weather[0]["main"] %></p>
+		    			<p class="bd-notification is-primary"><%= @current_weather[0]["description"] %></p>
+		    			<%= image_tag ( "http://openweathermap.org/img/w/"+ @current_weather[0]["icon"] +".png") %>
+                  <p class="bd-notification is-primary">Wind Speed: <%= @current_name.parsed_response["wind"]["speed"] %></p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+          <div class="column is-3 container has-text-centered">
+               <div class="card is-shady">
+                  <div class="card-content">
+                     <div class="content">
+                     		<p class="bd-notification is-primary"><b><%= @current_name1["name"] %></b></p>
+                     		<p class="bd-notification is-primary"><%= @current_weather1[0]["main"] %></p>
+			    			<p class="bd-notification is-primary"><%= @current_weather1[0]["description"] %></p>
+			    			<%= image_tag ( "http://openweathermap.org/img/w/"+ @current_weather1[0]["icon"] +".png") %>
+                     <p class="bd-notification is-primary">Wind Speed: <%= @current_name1.parsed_response["wind"]["speed"] %></p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+          <div class="column is-3 container has-text-centered">
+               <div class="card is-shady">
+                  <div class="card-content">
+                     <div class="content">
+                     	<p class="bd-notification is-primary"><b><%= @current_name2["name"] %></b></p>
+                     	<p class="bd-notification is-primary"><%= @current_weather2[0]["main"] %></p>
+		    			<p class="bd-notification is-primary"><%= @current_weather2[0]["description"] %></p>
+		    			<%= image_tag ( "http://openweathermap.org/img/w/"+ @current_weather2[0]["icon"] +".png") %>
+                  <p class="bd-notification is-primary">Wind Speed: <%= @current_name2.parsed_response["wind"]["speed"] %></p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+         <div class="column is-3 container has-text-centered">
+               <div class="card is-shady">
+                  <div class="card-content">
+                     <div class="content">
+                     	<p class="bd-notification is-primary"><b><%= @current_name3["name"] %></b></p>
+                     	<p class="bd-notification is-primary"><%= @current_weather3[0]["main"] %></p>
+		    			<p class="bd-notification is-primary"><%= @current_weather3[0]["description"] %></p>
+		    			<%= image_tag ( "http://openweathermap.org/img/w/"+ @current_weather3[0]["icon"] +".png") %>
+                  <p class="bd-notification is-primary">Wind Speed: <%= @current_name3.parsed_response["wind"]["speed"] %></p>
+                     </div>
+                  </div>
+               </div>
+         </div>
+     </div>
+ </section>
+     </section> 
+   </body>
+</html>
